@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SWFUploadWithJqeury.Default" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SWFUploadWithJqeury.Default" %>
 
 <!DOCTYPE html>
 
@@ -16,19 +16,19 @@
             $('#swfupload-control').swfupload({
                 upload_url: "UploadHandler.ashx",
                 post_params: { "ASPSESSID": "<%=Session.SessionID %>" },
-                file_size_limit: "30 MB",
-                file_types: "*.*",
-                file_types_description: "All Files",
+                file_size_limit: "5 MB",
+                file_types: "*.jpg;*.gif;*.png;*.bmp;*.pdf;*.doc;*.docx;*.xls;*.xlsx",
+                file_types_description: "图片及文档",
                 file_upload_limit: "0",
                 flash_url: "Scripts/swfupload/swfupload.swf",
-                button_text: '<span class="button">选择文件</span>',
-                button_text_style: '.button {text-align:center;top:5px }',
+                button_text: '选择文件',
                 button_image_url: 'Scripts/swfupload/XPButtonUploadText_61x22.png',
                 button_text_top_padding: 2,
+                button_text_left_padding: 5,
                 button_width: 61,
                 button_height: 22,
                 button_placeholder: $('#button')[0],
-                debug: false,
+                debug: true,
                 custom_settings: { something: "here" }
             })
                 .bind('fileQueued', function (event, file) {
